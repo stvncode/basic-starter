@@ -16,6 +16,10 @@ export const Layout = () => {
 
   const page = pathname.split("/").pop()
 
+  const upperCaseFirstLetter = (string: string) => {
+    return string.charAt(0).toUpperCase() + string.slice(1)
+  }
+
   return (
     <SidebarProvider>
       <AppSidebar />
@@ -28,7 +32,9 @@ export const Layout = () => {
               <BreadcrumbList>
                 <BreadcrumbItem>
                   <BreadcrumbPage>
-                    {page === "" ? "Dashboard" : page}
+                    {page === ""
+                      ? "Dashboard"
+                      : upperCaseFirstLetter(page ?? "")}
                   </BreadcrumbPage>
                 </BreadcrumbItem>
               </BreadcrumbList>
